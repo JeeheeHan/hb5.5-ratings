@@ -5,7 +5,6 @@ import datetime
 
 db = SQLAlchemy()
 
-
 # Replace this with your code!
 
 
@@ -78,7 +77,7 @@ class Rating(db.Model):
 
 
 #bd.create_all() is to create all the tables with the details above in python class
-
+#caution: check to see if the variable will return a list or an actual string
 
 if __name__ == '__main__':
     from server import app
