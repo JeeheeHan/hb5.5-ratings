@@ -16,7 +16,13 @@ def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
     db.app = flask_app
     db.init_app(flask_app)
 
-    print('Connected to the db!')
+    print('Connected to the db!') 
+    #this won't really check that it is connect to the DB. 
+    #Do this first before running py files!!!!
+    #FYI (seed_database.py) while run the DB for us (below steps)
+    # Steps to create the db from sql dump file
+    #step 1: createdb ratings 
+    #step2 : psql ratings < ratings.sql
 
 class User(db.Model):
     """A user table class"""
