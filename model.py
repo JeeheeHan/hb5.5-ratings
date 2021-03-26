@@ -39,7 +39,7 @@ class User(db.Model):
     # ratings = a list of Rating objects
             
     def __repr__(self):
-        return f'<User user_id={self.user_id} email={self.email} Also, you look great today.>'
+        return f'<User user_id={self.user_id} email={self.email}>'
 
 class Movie(db.Model):
     """Movie table class"""
@@ -57,7 +57,7 @@ class Movie(db.Model):
     # ratings = a list of Rating objects
 
     def __repr__(self):
-        return f'<Movies movie_id={self.movie_id} title={self.title}. Your hair looks amazing today.>'
+        return f'<Movies movie_id={self.movie_id} title={self.title}>'
 
 
 class Rating(db.Model):
@@ -79,7 +79,7 @@ class Rating(db.Model):
 
          
     def __repr__(self):
-        return f'<Ratings rating_id={self.rating_id} score= {self.score} Thank you for being a fun person.>'
+        return f'<Ratings: rating_id={self.rating_id} score= {self.score}>'
 
 
 #bd.create_all() is to create all the tables with the details above in python class
