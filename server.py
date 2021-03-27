@@ -34,6 +34,39 @@ def show_movie(movie_id):
     movie = crud.get_movie_by_id(movie_id)
     return render_template('movie_details.html', movie=movie)
 
+@app.route('/users', methods=['POST'])
+def register_user():
+    """Create a new user."""
+
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    user = crud.get_user_by_email(email)
+
+    if user:
+        flash("Account with this email exists")
+    else:
+        crud.create_user(email,password)
+        flash("Account created! Please log in")
+
+    return redirect('/')
+
+@app.route('/login', methods= ['POST'])
+def login():
+    """login with credentials"""
+
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    user_id = crud.login_check(email, password)
+
+    if user_id: 
+        flash('Logged in!')
+    else:
+        flash('Wrong credentials. Try again')
+
+    return redirect ('/')
+
 
 if __name__ == '__main__':
     connect_to_db(app)

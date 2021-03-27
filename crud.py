@@ -47,9 +47,27 @@ def create_rating(user, movie, score):
 
     return rating
 
+# def get_users():
+#     """Return all users."""
 
+#     return User.query.all()
 
+def get_user_by_email(email):
+    """Return a user by email"""
+    
+    return User.query.filter(User.email == email).first()
+    #Return the first result of this Query or None if the result doesn’t contain any row.
 
+def login_check(email, password):
+    """Check if email matches password"""
+    try: 
+        user = User.query.filter(User.email == email).first()
+        password_by_email = user.password
+
+        if password == password_by_email:
+            return user.user_id
+    except:
+        pass
 
 if __name__ == '__main__':
     from server import app
